@@ -1,10 +1,11 @@
-import { Instagram, LogOut, AlertCircle, Menu, ArrowLeft, Facebook, Twitter, Share2, Search, Sun, Moon } from 'lucide-react';
+import { Instagram, LogOut, AlertCircle, Menu, ArrowLeft, Facebook, Twitter, Share2, Search, Sun, Moon, ShoppingBag } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { auth } from './firebase';
 import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
 import { fetchPosts, Post } from './services/api';
 import PostComments from './components/PostComments';
 import SearchModal from './components/SearchModal';
+import Store from './components/Store';
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -163,8 +164,10 @@ export default function App() {
       
       <header className="sticky top-0 h-auto min-h-[80px] py-4 lg:py-0 px-5 lg:px-10 flex items-center justify-between border-b border-border shrink-0 gap-4 z-40 bg-bg shadow-md">
         <div className="flex-1 hidden md:block">
-          <nav className="flex gap-[20px] lg:gap-[30px] text-[11px] lg:text-[13px] uppercase tracking-[2px] text-muted">
+          <nav className="flex gap-[15px] lg:gap-[20px] text-[10px] lg:text-[12px] uppercase tracking-[1px] text-muted">
             <span onClick={() => setActiveTab('inicio')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'inicio' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Início</span>
+            <span onClick={() => setActiveTab('posts')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'posts' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Artigos</span>
+            <span onClick={() => setActiveTab('loja')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'loja' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Loja</span>
             <span onClick={() => setActiveTab('servicos')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'servicos' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Serviços</span>
             <span onClick={() => setActiveTab('quem-somos')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'quem-somos' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Quem Somos</span>
             <span onClick={() => setActiveTab('contato')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'contato' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Contato</span>
@@ -244,6 +247,8 @@ export default function App() {
       {mobileMenuOpen && (
         <div className="md:hidden fixed top-[80px] left-0 right-0 bg-bg border-b border-border z-30 flex flex-col p-5 gap-4 shadow-2xl">
           <span onClick={() => { setActiveTab('inicio'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'inicio' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Início</span>
+          <span onClick={() => { setActiveTab('posts'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'posts' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Artigos</span>
+          <span onClick={() => { setActiveTab('loja'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'loja' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Loja</span>
           <span onClick={() => { setActiveTab('servicos'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'servicos' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Serviços</span>
           <span onClick={() => { setActiveTab('quem-somos'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'quem-somos' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Quem Somos</span>
           <span onClick={() => { setActiveTab('contato'); setMobileMenuOpen(false); }} className={`pb-2 uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'contato' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Contato</span>
@@ -269,20 +274,35 @@ export default function App() {
                 </p>
               </div>
 
-              <a 
-                href="https://www.instagram.com/achar.temas?igsh=eTlqaGNwYnYydzB6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-card-bg p-4 lg:p-5 border-l-4 border-highlight flex items-center gap-3 lg:gap-[15px] mt-8 lg:mt-0 hover:bg-muted/10 transition-colors cursor-pointer group"
-              >
-                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-border rounded-full flex items-center justify-center text-highlight shrink-0 group-hover:scale-110 transition-transform">
-                  <Instagram size={14} className="lg:w-4 lg:h-4" />
-                </div>
-                <div className="text-[10px] lg:text-xs flex flex-col gap-1">
-                  <span className="font-bold">Acesse nossa página no Instagram</span>
-                  <span className="text-muted">Siga-nos para mais conteúdos</span>
-                </div>
-              </a>
+              <div className="flex flex-col gap-4 mt-8 lg:mt-0">
+                <a 
+                  href="https://www.instagram.com/achar.temas?igsh=eTlqaGNwYnYydzB6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-card-bg p-4 lg:p-5 border-l-4 border-highlight flex items-center gap-3 lg:gap-[15px] hover:bg-muted/10 transition-colors cursor-pointer group"
+                >
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-border rounded-full flex items-center justify-center text-highlight shrink-0 group-hover:scale-110 transition-transform">
+                    <Instagram size={14} className="lg:w-4 lg:h-4" />
+                  </div>
+                  <div className="text-[10px] lg:text-xs flex flex-col gap-1">
+                    <span className="font-bold">Acesse nossa página no Instagram</span>
+                    <span className="text-muted">Siga-nos para mais conteúdos</span>
+                  </div>
+                </a>
+
+                <button 
+                  onClick={() => setActiveTab('loja')}
+                  className="bg-card-bg p-4 lg:p-5 border-l-4 border-highlight flex items-center gap-3 lg:gap-[15px] hover:bg-muted/10 transition-colors cursor-pointer group text-left"
+                >
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-border rounded-full flex items-center justify-center text-highlight shrink-0 group-hover:scale-110 transition-transform">
+                    <ShoppingBag size={14} className="lg:w-4 lg:h-4" />
+                  </div>
+                  <div className="text-[10px] lg:text-xs flex flex-col gap-1">
+                    <span className="font-bold">Visite nossa Loja Shopee</span>
+                    <span className="text-muted">Confira nossa coleção exclusiva</span>
+                  </div>
+                </button>
+              </div>
             </section>
 
             <section className="p-6 sm:p-8 lg:p-10 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5 lg:overflow-y-auto">
@@ -458,6 +478,10 @@ export default function App() {
               </button>
             </div>
           </section>
+        )}
+
+        {activeTab === 'loja' && (
+          <Store />
         )}
 
         {activeTab === 'servicos' && (
