@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isValidComment() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['postId', 'userId', 'userName', 'content', 'createdAt']) &&
+             data.postId is number &&
+             data.userId is string && data.userId == request.auth.uid &&
+             data.userName is string && data.userName.size() > 0 && data.userName.size() <= 100 &&
+             (!('userPhoto' in data) || data.userPhoto == null || (data.userPhoto is string && data.userPhoto.size() <= 1000)) &&
+             data.content is string && data.content.size() > 0 && data.content.size() <= 2000 &&
+             data.createdAt is timestamp;
+    }
+    
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow create, update: if isOwner(userId);
+    }
+
+    match /comments/{commentId} {
+      // Anyone can read comments
+      allow read: if true;
+      // Authenticated users can create comments
+      allow create: if isAuthenticated() && isValidComment();
+      // Users can update their own comments (if we want to allow it later, but let's restrict to create for now)
+      allow update: if false;
+      // Users can delete their own comments
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

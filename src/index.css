@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-bg: var(--bg);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-highlight: var(--highlight);
+  --color-card-bg: var(--card-bg);
+  --color-border: var(--border);
+  --font-serif: Georgia, ui-serif, serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg: #0C0C0C;
+    --accent: #E1E1E1;
+    --muted: #666666;
+    --highlight: #F47B20;
+    --card-bg: #111111;
+    --border: #222222;
+  }
+
+  :root.light {
+    --bg: #F5F5F5;
+    --accent: #1A1A1A;
+    --muted: #4A4A4A;
+    --highlight: #F47B20;
+    --card-bg: #FFFFFF;
+    --border: #E5E5E5;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
