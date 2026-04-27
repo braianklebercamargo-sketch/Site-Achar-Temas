@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db, auth } from '../firebase';
 import { collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import { User } from 'firebase/auth';
-import { fetchLocalComments, WPComment } from '../services/api';
+import { fetchComments, WPComment } from '../services/api';
 
 interface FSComment {
   id: string;
@@ -22,7 +22,7 @@ export default function PostComments({ postId, user }: { postId: number, user: U
 
   useEffect(() => {
     // Fetch WP Comments locally
-    fetchLocalComments(postId).then(data => {
+    fetchComments(postId).then(data => {
       setWpComments(data);
     }).catch(err => console.error("Error fetching local WP comments:", err));
 
