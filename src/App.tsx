@@ -58,8 +58,9 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (activeTab === 'posts' && selectedCategoryGroup) {
-      const cacheKey = selectedCategoryGroup.categoryIds.join(',');
+    if (activeTab === 'posts') {
+      const isGeneral = !selectedCategoryGroup || selectedCategoryGroup.categoryIds.length === 0;
+      const cacheKey = isGeneral ? 'all_posts' : selectedCategoryGroup.categoryIds.join(',');
       
       if (cachedPosts[cacheKey]) {
         setPosts(cachedPosts[cacheKey]);
@@ -68,7 +69,7 @@ export default function App() {
       }
 
       setLoadingPosts(true);
-      fetchPosts(selectedCategoryGroup.categoryIds)
+      fetchPosts(isGeneral ? undefined : selectedCategoryGroup.categoryIds)
         .then(data => {
           setPosts(data);
           setCachedPosts(prev => ({ ...prev, [cacheKey]: data }));
@@ -165,12 +166,12 @@ export default function App() {
       <header className="sticky top-0 h-auto min-h-[80px] py-4 lg:py-0 px-5 lg:px-10 flex items-center justify-between border-b border-border shrink-0 gap-4 z-40 bg-bg shadow-md">
         <div className="flex-1 hidden md:block">
           <nav className="flex gap-[15px] lg:gap-[20px] text-[10px] lg:text-[12px] uppercase tracking-[1px] text-muted">
-            <span onClick={() => setActiveTab('inicio')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'inicio' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Início</span>
-            <span onClick={() => setActiveTab('posts')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'posts' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Artigos</span>
-            <span onClick={() => setActiveTab('loja')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'loja' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Loja</span>
-            <span onClick={() => setActiveTab('servicos')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'servicos' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Serviços</span>
-            <span onClick={() => setActiveTab('quem-somos')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'quem-somos' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Quem Somos</span>
-            <span onClick={() => setActiveTab('contato')} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'contato' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Contato</span>
+            <span onClick={() => { setActiveTab('inicio'); setSelectedPost(null); setSelectedCategoryGroup(null); }} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'inicio' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Início</span>
+            <span onClick={() => { setActiveTab('posts'); setSelectedPost(null); setSelectedCategoryGroup({title: "Últimos Artigos", categoryIds: []}); }} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'posts' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Artigos</span>
+            <span onClick={() => { setActiveTab('loja'); setSelectedPost(null); setSelectedCategoryGroup(null); }} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'loja' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Loja</span>
+            <span onClick={() => { setActiveTab('servicos'); setSelectedPost(null); setSelectedCategoryGroup(null); }} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'servicos' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Serviços</span>
+            <span onClick={() => { setActiveTab('quem-somos'); setSelectedPost(null); setSelectedCategoryGroup(null); }} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'quem-somos' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Quem Somos</span>
+            <span onClick={() => { setActiveTab('contato'); setSelectedPost(null); setSelectedCategoryGroup(null); }} className={`cursor-pointer pb-1 transition-colors ${activeTab === 'contato' ? 'text-accent border-b-2 border-highlight' : 'hover:text-accent'}`}>Contato</span>
           </nav>
         </div>
 
@@ -246,12 +247,12 @@ export default function App() {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed top-[80px] left-0 right-0 bg-bg border-b border-border z-30 flex flex-col p-5 gap-4 shadow-2xl">
-          <span onClick={() => { setActiveTab('inicio'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'inicio' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Início</span>
-          <span onClick={() => { setActiveTab('posts'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'posts' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Artigos</span>
-          <span onClick={() => { setActiveTab('loja'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'loja' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Loja</span>
-          <span onClick={() => { setActiveTab('servicos'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'servicos' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Serviços</span>
-          <span onClick={() => { setActiveTab('quem-somos'); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'quem-somos' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Quem Somos</span>
-          <span onClick={() => { setActiveTab('contato'); setMobileMenuOpen(false); }} className={`pb-2 uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'contato' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Contato</span>
+          <span onClick={() => { setActiveTab('inicio'); setSelectedPost(null); setSelectedCategoryGroup(null); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'inicio' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Início</span>
+          <span onClick={() => { setActiveTab('posts'); setSelectedPost(null); setSelectedCategoryGroup({title: 'Últimos Artigos', categoryIds: []}); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'posts' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Artigos</span>
+          <span onClick={() => { setActiveTab('loja'); setSelectedPost(null); setSelectedCategoryGroup(null); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'loja' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Loja</span>
+          <span onClick={() => { setActiveTab('servicos'); setSelectedPost(null); setSelectedCategoryGroup(null); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'servicos' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Serviços</span>
+          <span onClick={() => { setActiveTab('quem-somos'); setSelectedPost(null); setSelectedCategoryGroup(null); setMobileMenuOpen(false); }} className={`pb-2 border-b border-border uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'quem-somos' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Quem Somos</span>
+          <span onClick={() => { setActiveTab('contato'); setSelectedPost(null); setSelectedCategoryGroup(null); setMobileMenuOpen(false); }} className={`pb-2 uppercase tracking-[2px] text-xs transition-colors cursor-pointer ${activeTab === 'contato' ? 'text-accent font-bold' : 'text-muted hover:text-accent'}`}>Contato</span>
         </div>
       )}
 
