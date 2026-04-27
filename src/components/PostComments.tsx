@@ -2,15 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db, auth } from '../firebase';
 import { collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import { User } from 'firebase/auth';
-import { WP_API_URL } from '../services/api';
-
-interface WPComment {
-  id: number;
-  author_name: string;
-  date: string;
-  content: { rendered: string };
-  author_avatar_urls?: { [key: string]: string };
-}
+import { fetchLocalComments, WPComment } from '../services/api';
 
 interface FSComment {
   id: string;
@@ -29,13 +21,10 @@ export default function PostComments({ postId, user }: { postId: number, user: U
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // Fetch WP Comments
-    fetch(`${WP_API_URL}/comments?post=${postId}`)
-      .then(res => res.json())
-      .then(data => {
-        if (Array.isArray(data)) setWpComments(data);
-      })
-      .catch(err => console.error("Error fetching WP comments:", err));
+    // Fetch WP Comments locally
+    fetchLocalComments(postId).then(data => {
+      setWpComments(data);
+    }).catch(err => console.error("Error fetching local WP comments:", err));
 
     // Listen to Firestore Comments
     const q = query(

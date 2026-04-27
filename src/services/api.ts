@@ -1,4 +1,8 @@
-export const WP_API_URL = 'https://achartemas.com/wp-json/wp/v2';
+import postsData from '../data/posts.json';
+import categoriesData from '../data/categories.json';
+import commentsData from '../data/comments.json';
+
+export const WP_API_URL = ''; // No longer used for fetching
 
 export interface Category {
   id: number;
@@ -24,36 +28,52 @@ export interface Post {
       source_url: string;
     }>;
   };
+  categories: number[];
+}
+
+export interface WPComment {
+  id: number;
+  author_name: string;
+  date: string;
+  content: { rendered: string };
+  author_avatar_urls?: { [key: string]: string };
+  post: number;
 }
 
 export async function fetchCategories(): Promise<Category[]> {
-  const response = await fetch(`${WP_API_URL}/categories?per_page=100`);
-  if (!response.ok) throw new Error('Failed to fetch categories');
-  return response.json();
+  return categoriesData as Category[];
 }
 
 export async function fetchPosts(categoryIds?: number[], searchQuery?: string): Promise<Post[]> {
-  let url = `${WP_API_URL}/posts?_embed&per_page=12`;
+  let filtered = postsData as Post[];
+
   if (categoryIds && categoryIds.length > 0) {
-    url += `&categories=${categoryIds.join(',')}`;
+    filtered = filtered.filter(post => 
+      post.categories.some(catId => categoryIds.includes(catId))
+    );
   }
+
   if (searchQuery) {
-    url += `&search=${encodeURIComponent(searchQuery)}`;
+    const q = searchQuery.toLowerCase();
+    filtered = filtered.filter(post => 
+      post.title.rendered.toLowerCase().includes(q) || 
+      post.content.rendered.toLowerCase().includes(q)
+    );
   }
-  const response = await fetch(url);
-  if (!response.ok) throw new Error('Failed to fetch posts');
-  return response.json();
+
+  return filtered;
 }
 
 export async function searchAllPosts(): Promise<Post[]> {
-  // Fetch up to 100 posts for client-side fuzzy searching
-  const response = await fetch(`${WP_API_URL}/posts?_embed&per_page=100`);
-  if (!response.ok) throw new Error('Failed to fetch posts for search');
-  return response.json();
+  return postsData as Post[];
 }
 
 export async function fetchPost(id: number): Promise<Post> {
-  const response = await fetch(`${WP_API_URL}/posts/${id}?_embed`);
-  if (!response.ok) throw new Error('Failed to fetch post');
-  return response.json();
+  const post = (postsData as Post[]).find(p => p.id === id);
+  if (!post) throw new Error('Post not found');
+  return post;
+}
+
+export async function fetchLocalComments(postId: number): Promise<WPComment[]> {
+  return (commentsData as WPComment[]).filter(c => c.post === postId);
 }

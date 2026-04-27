@@ -114,13 +114,13 @@ export default function App() {
     {
       title: 'Cultura Pop & História',
       categoryIds: [49, 52],
-      bgImage: 'url(https://achartemas.com/wp-content/uploads/2025/03/652607f8-bd4a-4c4f-8900-ec5f808acc8b.jpg)',
+      bgImage: 'url(/wp-images/652607f8-bd4a-4c4f-8900-ec5f808acc8b.jpg)',
       bgSize: 'cover'
     },
     {
       title: 'Biodiversidade & Ciência',
       categoryIds: [50, 45],
-      bgImage: 'url(https://achartemas.com/wp-content/uploads/2025/11/4c4fc971-4eb6-4896-bc5b-078a7c0a758e.jpg)',
+      bgImage: 'url(/wp-images/4c4fc971-4eb6-4896-bc5b-078a7c0a758e.jpg)',
       bgSize: 'cover'
     },
     {
@@ -132,7 +132,7 @@ export default function App() {
     {
       title: 'Gastronomia, Moda & Transportes',
       categoryIds: [51, 38, 48],
-      bgImage: 'url(https://achartemas.com/wp-content/uploads/2025/03/Favicon-AT-1.png)',
+      bgImage: 'url(/wp-images/Favicon-AT-1.png)',
       bgSize: 'contain',
       bgColor: '#111'
     }
@@ -183,7 +183,7 @@ export default function App() {
           }}
           className="flex items-center gap-2 lg:gap-3 hover:opacity-80 transition-opacity text-center md:absolute md:left-1/2 md:-translate-x-1/2"
         >
-          <img src="https://achartemas.com/wp-content/uploads/2025/03/Favicon-AT-1.png" alt="Logo" className="w-6 h-6 lg:w-8 lg:h-8 object-contain" referrerPolicy="no-referrer" />
+          <img src="/wp-images/Favicon-AT-1.png" alt="Logo" className="w-6 h-6 lg:w-8 lg:h-8 object-contain" referrerPolicy="no-referrer" />
           <div className="font-serif font-black text-lg sm:text-xl lg:text-2xl tracking-[-1px] uppercase">
             Achar Temas
           </div>
@@ -455,7 +455,7 @@ export default function App() {
             <div className="shrink-0 relative">
               <div className="absolute inset-0 bg-highlight rounded-full blur-xl opacity-20"></div>
               <img 
-                src="https://achartemas.com/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-06-at-10.05.17.jpeg" 
+                src="/wp-images/WhatsApp-Image-2025-07-06-at-10.05.17.jpeg" 
                 alt="Neverson Camargo" 
                 className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 object-cover rounded-full border-4 border-[#222] relative z-10 shadow-2xl"
                 referrerPolicy="no-referrer"
