@@ -24,6 +24,11 @@ export interface Post {
       source_url: string;
     }>;
   };
+  yoast_head_json?: {
+    og_image?: Array<{
+      url: string;
+    }>;
+  };
   categories: number[];
 }
 

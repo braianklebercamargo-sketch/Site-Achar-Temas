@@ -114,13 +114,13 @@ export default function App() {
     {
       title: 'Cultura Pop & História',
       categoryIds: [49, 52],
-      bgImage: 'url(/wp-images/652607f8-bd4a-4c4f-8900-ec5f808acc8b.jpg)',
+      bgImage: 'url(https://achartemas.com/wp-content/uploads/2026/01/image-1.jpg)',
       bgSize: 'cover'
     },
     {
       title: 'Biodiversidade & Ciência',
       categoryIds: [50, 45],
-      bgImage: 'url(/wp-images/4c4fc971-4eb6-4896-bc5b-078a7c0a758e.jpg)',
+      bgImage: 'url(https://achartemas.com/wp-content/uploads/2025/11/image.jpg)',
       bgSize: 'cover'
     },
     {
@@ -132,7 +132,7 @@ export default function App() {
     {
       title: 'Gastronomia, Moda & Transportes',
       categoryIds: [51, 38, 48],
-      bgImage: 'url(/wp-images/Favicon-AT-1.png)',
+      bgImage: 'url(https://achartemas.com/wp-content/uploads/2025/03/Favicon-AT-1.png)',
       bgSize: 'contain',
       bgColor: '#111'
     }
@@ -151,6 +151,13 @@ export default function App() {
         setCachedPosts(prev => ({ ...prev, [cacheKey]: data }));
       }).catch(() => {}); // Ignore errors on prefetch
     }
+  };
+
+  const getPostImage = (post: Post) => {
+    if (post.yoast_head_json?.og_image?.[0]?.url) return post.yoast_head_json.og_image[0].url;
+    if (post._embedded?.['wp:featuredmedia']?.[0]?.source_url) return post._embedded['wp:featuredmedia'][0].source_url;
+    const match = post.content.rendered.match(/<img[^>]+src=\s*["']([^"']+)["']/i);
+    return match ? match[1] : null;
   };
 
   return (
@@ -183,7 +190,7 @@ export default function App() {
           }}
           className="flex items-center gap-2 lg:gap-3 hover:opacity-80 transition-opacity text-center md:absolute md:left-1/2 md:-translate-x-1/2"
         >
-          <img src="/wp-images/Favicon-AT-1.png" alt="Logo" className="w-6 h-6 lg:w-8 lg:h-8 object-contain" referrerPolicy="no-referrer" />
+          <img src="https://achartemas.com/wp-content/uploads/2025/03/Favicon-AT-1.png" alt="Logo" className="w-6 h-6 lg:w-8 lg:h-8 object-contain" referrerPolicy="no-referrer" />
           <div className="font-serif font-black text-lg sm:text-xl lg:text-2xl tracking-[-1px] uppercase">
             Achar Temas
           </div>
@@ -352,9 +359,9 @@ export default function App() {
                   dangerouslySetInnerHTML={{ __html: selectedPost.title.rendered }}
                 />
                 
-                {selectedPost._embedded?.['wp:featuredmedia']?.[0]?.source_url && (
+                {getPostImage(selectedPost) && (
                   <img 
-                    src={selectedPost._embedded['wp:featuredmedia'][0].source_url} 
+                    src={getPostImage(selectedPost)} 
                     alt="Featured" 
                     className="w-full h-auto max-h-[500px] object-cover mb-6 border border-border"
                     referrerPolicy="no-referrer"
@@ -409,13 +416,13 @@ export default function App() {
                         onClick={() => setSelectedPost(post)}
                         className="bg-card-bg border border-border cursor-pointer group hover:border-highlight transition-colors flex flex-col h-full overflow-hidden relative"
                       >
-                        {post._embedded?.['wp:featuredmedia']?.[0]?.source_url && (
+                        {getPostImage(post) && (
                           <div className="w-full h-56 overflow-hidden bg-bg relative">
                             <div className="absolute top-3 left-3 bg-highlight text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 z-10">
                               {selectedCategoryGroup?.title}
                             </div>
                             <img 
-                              src={post._embedded['wp:featuredmedia'][0].source_url} 
+                              src={getPostImage(post)} 
                               alt="Thumbnail" 
                               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                               referrerPolicy="no-referrer"
@@ -455,7 +462,7 @@ export default function App() {
             <div className="shrink-0 relative">
               <div className="absolute inset-0 bg-highlight rounded-full blur-xl opacity-20"></div>
               <img 
-                src="/wp-images/WhatsApp-Image-2025-07-06-at-10.05.17.jpeg" 
+                src="https://secure.gravatar.com/avatar/f0462bf2e75b49539ed86f655b2d5b0680e39dd59b63faa07057f5c1e1a44c22?s=500&d=mm&r=g" 
                 alt="Neverson Camargo" 
                 className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 object-cover rounded-full border-4 border-[#222] relative z-10 shadow-2xl"
                 referrerPolicy="no-referrer"

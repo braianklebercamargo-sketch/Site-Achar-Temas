@@ -64,6 +64,13 @@ export default function SearchModal({ isOpen, onClose, onSelectPost }: SearchMod
 
   if (!isOpen) return null;
 
+  const getPostImage = (post: any) => {
+    if (post.yoast_head_json?.og_image?.[0]?.url) return post.yoast_head_json.og_image[0].url;
+    if (post._embedded?.['wp:featuredmedia']?.[0]?.source_url) return post._embedded['wp:featuredmedia'][0].source_url;
+    const match = post.content?.rendered?.match(/<img[^>]+src=\s*["']([^"']+)["']/i);
+    return match ? match[1] : null;
+  };
+
   return (
     <div className="fixed inset-0 z-50 bg-bg/95 backdrop-blur-sm flex flex-col animate-in fade-in duration-300">
       <div className="flex items-center p-5 lg:p-10 border-b border-border">
@@ -102,7 +109,9 @@ export default function SearchModal({ isOpen, onClose, onSelectPost }: SearchMod
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {results.map(post => (
+                {results.map(post => {
+                  const image = getPostImage(post);
+                  return (
                   <div 
                     key={post.id} 
                     onClick={() => {
@@ -111,10 +120,10 @@ export default function SearchModal({ isOpen, onClose, onSelectPost }: SearchMod
                     }}
                     className="bg-card-bg border border-border cursor-pointer group hover:border-highlight transition-colors flex flex-col h-full overflow-hidden relative"
                   >
-                    {post._embedded?.['wp:featuredmedia']?.[0]?.source_url && (
+                    {image && (
                       <div className="w-full h-48 overflow-hidden bg-bg relative">
                         <img 
-                          src={post._embedded['wp:featuredmedia'][0].source_url} 
+                          src={image} 
                           alt="Thumbnail" 
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                           referrerPolicy="no-referrer"
@@ -133,7 +142,7 @@ export default function SearchModal({ isOpen, onClose, onSelectPost }: SearchMod
                       />
                     </div>
                   </div>
-                ))}
+                )})}
               </div>
             )}
           </div>
