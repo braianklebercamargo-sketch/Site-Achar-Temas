@@ -462,7 +462,7 @@ export default function App() {
             <div className="shrink-0 relative">
               <div className="absolute inset-0 bg-highlight rounded-full blur-xl opacity-20"></div>
               <img 
-                src="https://secure.gravatar.com/avatar/f0462bf2e75b49539ed86f655b2d5b0680e39dd59b63faa07057f5c1e1a44c22?s=500&d=mm&r=g" 
+                src="https://achartemas.com/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-06-at-10.05.17.jpeg" 
                 alt="Neverson Camargo" 
                 className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 object-cover rounded-full border-4 border-[#222] relative z-10 shadow-2xl"
                 referrerPolicy="no-referrer"
