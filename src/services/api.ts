@@ -1,4 +1,6 @@
-export const WP_API_URL = 'https://achartemas.com/wp-json/wp/v2';
+import categoriesData from '../data/categories.json';
+import postsData from '../data/posts.json';
+import commentsData from '../data/comments.json';
 
 export interface Category {
   id: number;
@@ -42,38 +44,42 @@ export interface WPComment {
 }
 
 export async function fetchCategories(): Promise<Category[]> {
-  const response = await fetch(`${WP_API_URL}/categories?per_page=100`);
-  if (!response.ok) throw new Error('Failed to fetch categories');
-  return response.json();
+  return categoriesData as Category[];
 }
 
 export async function fetchPosts(categoryIds?: number[], searchQuery?: string): Promise<Post[]> {
-  let url = `${WP_API_URL}/posts?_embed&per_page=12`;
+  let filteredPosts = postsData as Post[];
+
   if (categoryIds && categoryIds.length > 0) {
-    url += `&categories=${categoryIds.join(',')}`;
+    filteredPosts = filteredPosts.filter(post => 
+      post.categories.some(catId => categoryIds.includes(catId))
+    );
   }
+
   if (searchQuery) {
-    url += `&search=${encodeURIComponent(searchQuery)}`;
+    const query = searchQuery.toLowerCase();
+    filteredPosts = filteredPosts.filter(post => 
+      post.title.rendered.toLowerCase().includes(query) ||
+      post.content.rendered.toLowerCase().includes(query) ||
+      post.excerpt.rendered.toLowerCase().includes(query)
+    );
   }
-  const response = await fetch(url);
-  if (!response.ok) throw new Error('Failed to fetch posts');
-  return response.json();
+
+  // Mimic API behavior of returning a certain number of results
+  return filteredPosts.slice(0, 12);
 }
 
 export async function searchAllPosts(): Promise<Post[]> {
-  const response = await fetch(`${WP_API_URL}/posts?_embed&per_page=100`);
-  if (!response.ok) throw new Error('Failed to fetch posts for search');
-  return response.json();
+  return postsData as Post[];
 }
 
 export async function fetchPost(id: number): Promise<Post> {
-  const response = await fetch(`${WP_API_URL}/posts/${id}?_embed`);
-  if (!response.ok) throw new Error('Failed to fetch post');
-  return response.json();
+  const post = (postsData as Post[]).find(p => p.id === id);
+  if (!post) throw new Error('Post not found');
+  return post;
 }
 
 export async function fetchComments(postId: number): Promise<WPComment[]> {
-  const response = await fetch(`${WP_API_URL}/comments?post=${postId}&per_page=100`);
-  if (!response.ok) throw new Error('Failed to fetch comments');
-  return response.json();
+  return (commentsData as WPComment[]).filter(c => c.post === postId);
 }
+
