@@ -1,0 +1,338 @@
+[
+  {
+    "id": 26,
+    "post": 659,
+    "parent": 0,
+    "author": 0,
+    "author_name": "Letícia Fontana",
+    "author_url": "",
+    "date": "2026-01-31T13:30:09",
+    "date_gmt": "2026-01-31T13:30:09",
+    "content": {
+      "rendered": "<p>Nunca imaginei que meu desenho favorito começou na Mattel, adorei saber disso! He-man participou não so da minha vida como a da minha mãe, e até mesmo da minha vó que assistia com ela, eu to adorando a ideia que vão lançar um novo filme!</p>\n"
+    },
+    "link": "https://achartemas.com/pelos-poderes-de-grayskull/#comment-26",
+    "status": "approved",
+    "type": "comment",
+    "author_avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/b485bf51c19d729fcd0ebde2d20830f3190e89b6e5ed2dee9bbea41afbb5b9a5?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/b485bf51c19d729fcd0ebde2d20830f3190e89b6e5ed2dee9bbea41afbb5b9a5?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/b485bf51c19d729fcd0ebde2d20830f3190e89b6e5ed2dee9bbea41afbb5b9a5?s=96&d=mm&r=g"
+    },
+    "meta": {
+      "_wp_note_status": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments/26",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "post_type": "post",
+          "href": "https://achartemas.com/wp-json/wp/v2/posts/659"
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "post": 475,
+    "parent": 0,
+    "author": 0,
+    "author_name": "CINTIA DALL AGNOL",
+    "author_url": "",
+    "date": "2025-11-09T18:02:21",
+    "date_gmt": "2025-11-09T18:02:21",
+    "content": {
+      "rendered": "<p>Muito bom e informativo esse artigo. Interessante saber que existe Jardim sensorial, até então não sabia dessa alternativa de jardim. Parabéns!</p>\n"
+    },
+    "link": "https://achartemas.com/jardim/#comment-16",
+    "status": "approved",
+    "type": "comment",
+    "author_avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/fd89ce1824e97c33ee62946420e8e78dd86772aae6d7ddd5616db2e2331d8009?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/fd89ce1824e97c33ee62946420e8e78dd86772aae6d7ddd5616db2e2331d8009?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/fd89ce1824e97c33ee62946420e8e78dd86772aae6d7ddd5616db2e2331d8009?s=96&d=mm&r=g"
+    },
+    "meta": {
+      "_wp_note_status": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments/16",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "post_type": "post",
+          "href": "https://achartemas.com/wp-json/wp/v2/posts/475"
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "post": 462,
+    "parent": 0,
+    "author": 0,
+    "author_name": "Paulo calota",
+    "author_url": "",
+    "date": "2025-08-31T15:27:12",
+    "date_gmt": "2025-08-31T15:27:12",
+    "content": {
+      "rendered": "<p>Tudo o que está escrito é a mais pura verdade, a corrida transforma a vida da pessoa, não só fisicamente mas mentalmente.<br />\nSó quem pratica saberá o poder da corrida ou da prática esportiva!<br />\nÓtima pauta meu amigo!!!</p>\n"
+    },
+    "link": "https://achartemas.com/esporte/#comment-7",
+    "status": "approved",
+    "type": "comment",
+    "author_avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/11091fabc12bf497f305f6055cd038962177aa0f8d0aa61d3d82e81c6e4299b4?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/11091fabc12bf497f305f6055cd038962177aa0f8d0aa61d3d82e81c6e4299b4?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/11091fabc12bf497f305f6055cd038962177aa0f8d0aa61d3d82e81c6e4299b4?s=96&d=mm&r=g"
+    },
+    "meta": {
+      "_wp_note_status": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments/7",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "post_type": "post",
+          "href": "https://achartemas.com/wp-json/wp/v2/posts/462"
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "post": 462,
+    "parent": 0,
+    "author": 0,
+    "author_name": "Braian",
+    "author_url": "",
+    "date": "2025-08-31T14:01:33",
+    "date_gmt": "2025-08-31T14:01:33",
+    "content": {
+      "rendered": "<p>Esse tema me fez refletir sobre as caminhadas e corridas que fazemos diariamente, sobre a queima de calorias e sustentação do corpo, atualmente é um dos esportes que eu menos gosto, mas com esse seu post, me fez ter mais vontades de correr ou caminhar, tanto para a perca de peso quanto para a resistência física, muito bom você ter dito sobre a importância de um tênis bom de corrida, sensacional seu conteúdo, fico no aguardo para mais temas parecidos para ajudar a cuidar da saúde</p>\n"
+    },
+    "link": "https://achartemas.com/esporte/#comment-6",
+    "status": "approved",
+    "type": "comment",
+    "author_avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/937c04bb12138eff0ccf2c15d2b67610af7f3fa269780e480ab2c538ce801eb7?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/937c04bb12138eff0ccf2c15d2b67610af7f3fa269780e480ab2c538ce801eb7?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/937c04bb12138eff0ccf2c15d2b67610af7f3fa269780e480ab2c538ce801eb7?s=96&d=mm&r=g"
+    },
+    "meta": {
+      "_wp_note_status": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments/6",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "post_type": "post",
+          "href": "https://achartemas.com/wp-json/wp/v2/posts/462"
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "post": 368,
+    "parent": 0,
+    "author": 0,
+    "author_name": "Lauren Brinker",
+    "author_url": "https://achartemas.com/mofo/",
+    "date": "2025-10-10T16:31:17",
+    "date_gmt": "2025-10-10T16:31:17",
+    "content": {
+      "rendered": "<p>Me ajudou esse conteúdo, principalmente nas causas de mofo!</p>\n"
+    },
+    "link": "https://achartemas.com/mofo/#comment-13",
+    "status": "approved",
+    "type": "comment",
+    "author_avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/9588174efbcf5276ed10ab72cd0f2c561c88bc5fbeca13c15dbc3505bc74ee7f?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/9588174efbcf5276ed10ab72cd0f2c561c88bc5fbeca13c15dbc3505bc74ee7f?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/9588174efbcf5276ed10ab72cd0f2c561c88bc5fbeca13c15dbc3505bc74ee7f?s=96&d=mm&r=g"
+    },
+    "meta": {
+      "_wp_note_status": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments/13",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "post_type": "post",
+          "href": "https://achartemas.com/wp-json/wp/v2/posts/368"
+        }
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "post": 280,
+    "parent": 0,
+    "author": 0,
+    "author_name": "Dione Bettio",
+    "author_url": "",
+    "date": "2025-10-10T16:31:57",
+    "date_gmt": "2025-10-10T16:31:57",
+    "content": {
+      "rendered": "<p>Muito boa a abordagem do tema, poderia novos artigos, abordando temas mais específicos, no assunto das construções, criando uma linha do tempo, demonstrando a evolução das técnicas de construções em artigos separados, cada um abordando uma técnica por exemplo</p>\n"
+    },
+    "link": "https://achartemas.com/construcoes-ao-longo-dos-seculos/#comment-14",
+    "status": "approved",
+    "type": "comment",
+    "author_avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/08d878ab742f1e668db6718de9a0c3b93382c3da391bd2dbc4e7b0f7a992846d?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/08d878ab742f1e668db6718de9a0c3b93382c3da391bd2dbc4e7b0f7a992846d?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/08d878ab742f1e668db6718de9a0c3b93382c3da391bd2dbc4e7b0f7a992846d?s=96&d=mm&r=g"
+    },
+    "meta": {
+      "_wp_note_status": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments/14",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "post_type": "post",
+          "href": "https://achartemas.com/wp-json/wp/v2/posts/280"
+        }
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "post": 154,
+    "parent": 0,
+    "author": 0,
+    "author_name": "CINTIA DALL AGNOL",
+    "author_url": "",
+    "date": "2025-11-09T18:14:38",
+    "date_gmt": "2025-11-09T18:14:38",
+    "content": {
+      "rendered": "<p>Impressionante a variedade de coisas que podemos fazer com itens que temos em casa pra descomplicar nosso dia a dia.</p>\n"
+    },
+    "link": "https://achartemas.com/formas-caseiras/#comment-17",
+    "status": "approved",
+    "type": "comment",
+    "author_avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/fd89ce1824e97c33ee62946420e8e78dd86772aae6d7ddd5616db2e2331d8009?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/fd89ce1824e97c33ee62946420e8e78dd86772aae6d7ddd5616db2e2331d8009?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/fd89ce1824e97c33ee62946420e8e78dd86772aae6d7ddd5616db2e2331d8009?s=96&d=mm&r=g"
+    },
+    "meta": {
+      "_wp_note_status": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments/17",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://achartemas.com/wp-json/wp/v2/comments"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "post_type": "post",
+          "href": "https://achartemas.com/wp-json/wp/v2/posts/154"
+        }
+      ]
+    }
+  }
+]

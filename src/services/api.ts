@@ -84,5 +84,3 @@ export async function fetchPost(id: number): Promise<Post> {
 export async function fetchComments(postId: number): Promise<WPComment[]> {
   return (commentsData as WPComment[]).filter(c => c.post === postId);
 }
-
-

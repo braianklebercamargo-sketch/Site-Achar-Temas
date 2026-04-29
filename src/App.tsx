@@ -114,27 +114,26 @@ export default function App() {
     {
       title: 'Cultura Pop & História',
       categoryIds: [49, 52],
-      bgImage: 'url(https://achartemas.com/wp-content/uploads/2026/01/image-1.jpg)',
+      bgImage: 'url("https://image.pollinations.ai/prompt/Michael%20Jackson%20performing%20on%20stage%20in%20the%201980s%2C%20vibrant%20red%20leather%20jacket%2C%20epic%20concert%20lighting%2C%20hyper-realistic%20pop%20culture%20icon%2C%208k%20resolution%2C%20cinematic?width=800&height=600&nologo=true&seed=901")',
       bgSize: 'cover'
     },
     {
       title: 'Biodiversidade & Ciência',
       categoryIds: [50, 45],
-      bgImage: 'url(https://achartemas.com/wp-content/uploads/2025/11/image.jpg)',
+      bgImage: 'url("https://image.pollinations.ai/prompt/Macro%20photography%20of%20a%20beautiful%20exotic%20insect%20on%20a%20glowing%20bioluminescent%20plant%2C%20highly%20detailed%20nature%20discovery%2C%20cinematic%20science%2C%20national%20geographic%20style?width=800&height=600&nologo=true&seed=902")',
       bgSize: 'cover'
     },
     {
       title: 'Arte & Curiosidades',
       categoryIds: [44, 47],
-      bgImage: 'url(https://picsum.photos/seed/art/800/600)',
+      bgImage: 'url("https://image.pollinations.ai/prompt/A%20stunning%20modern%20art%20museum%20gallery%20with%20classic%20marble%20statues%20and%20surrealist%20paintings%2C%20golden%20hour%20lighting%20pouring%20through%20large%20windows%2C%20aesthetic?width=800&height=600&nologo=true&seed=903")',
       bgSize: 'cover'
     },
     {
       title: 'Gastronomia, Moda & Transportes',
       categoryIds: [51, 38, 48],
-      bgImage: 'url(https://achartemas.com/wp-content/uploads/2025/03/Favicon-AT-1.png)',
-      bgSize: 'contain',
-      bgColor: '#111'
+      bgImage: 'url("https://image.pollinations.ai/prompt/A%20gourmet%20fine%20dining%20dish%20on%20a%20table%20next%20to%20a%20haute%20couture%20fashion%20magazine%2C%20elegant%20vintage%20sports%20car%20seen%20through%20the%20window%2C%20lifestyle%20luxury%20photography?width=800&height=600&nologo=true&seed=904")',
+      bgSize: 'cover'
     }
   ];
 
@@ -153,11 +152,109 @@ export default function App() {
     }
   };
 
+  const postPrompts: Record<number, string> = {
+    685: "Epic cinematic shot of Emperor Constantine looking at a glowing cross in the sky, ancient Roman legions, hyper-realistic, 8k resolution, historical masterpiece",
+    678: "Hyper-realistic historical painting of the Resurrection of Christ, brilliant divine light from a tomb in ancient Jerusalem, shocked Roman guards, dramatic lighting",
+    669: "Historical painting of ancient carnival festival, colorful Venetian masks, religious symbolism, dramatic street celebration, vibrant, atmospheric",
+    666: "Cymatics sound wave patterns forming intricate geometric Chladni figures on a brass plate covered in sand, glowing neon acoustic vibrations, macro photography",
+    659: "80s superhero holding a glowing magical sword aloft, stormy sky with lightning, Castle Grayskull in background, epic epic fantasy art, hyper-realistic pop culture",
+    655: "1990s grunge rock band performing on stage, lead singer roaring into microphone, flannel shirts, packed underground club, moody concert lighting",
+    650: "A beautiful, spiraling herb garden made of natural stone, filled with lush green culinary herbs, golden hour sunlight, hyper-realistic gardening photography",
+    645: "A gentle manatee swimming in crystal clear blue spring water, underwater photography, highly detailed, beautiful sunrays piercing the water",
+    639: "Olympic swimmer doing the butterfly stroke, splashing water, dramatic underwater cinematic view, athlete in motion, highly detailed sports photography",
+    599: "Cozy magical Christmas scene, ancient origins of Yule, snowy pine forest, warm glowing fire, historical winter solstice celebration, hyper-realistic",
+    594: "Robert Hooke looking through an antique 17th-century brass microscope in a candlelit study, scientific revolution, historical painting style",
+    589: "Nikola Tesla examining a giant glowing Tesla coil in his laboratory, electricity arcing, steampunk vibes, historical portrait, dramatic lighting",
+    584: "Albert Einstein writing complex astrophysics equations on a giant chalkboard, deep in thought, hyper-realistic portrait photography",
+    579: "Isaac Newton sitting under an apple tree, holding a prism refracting rainbow light, 17th-century English countryside, historical realistic art",
+    574: "Leonardo da Vinci in his Renaissance studio, drafting the Vitruvian Man, surrounded by inventions and oil paintings, cinematic historical lighting",
+    570: "An artist painting a stunning cubist portrait in a messy bohemian studio, vibrant abstract colors, Pablo Picasso style aesthetic",
+    560: "A stunning hyper-realistic landscape photograph blending into Vincent Van Gogh's Starry Night style, swirling sky, cypress trees, glowing stars",
+    554: "Vintage 1920s biplane flying over a beautiful green landscape, sepia tone warmth, history of aviation, hyper-realistic aerial photography",
+    543: "Classic early 20th-century vintage car driving on a dusty road, industrial revolution, history of the combustion engine, cinematic realism",
+    536: "A massive, powerful steam locomotive train speeding through a snowy mountain pass, billowing white smoke, dramatic industrial photography",
+    529: "A surreal, emotional concept art piece representing overcoming anxiety, a person emerging from a dark storm into a calm, beautiful sunlit meadow",
+    515: "Highly detailed 3D medical visualization of a healthy glowing human brain, neural pathways lighting up, scientific medical art",
+    508: "Beautiful haute couture fashion sketch made from sustainable natural materials, leaves and organic fabrics, eco-friendly fashion photography",
+    497: "A delicious spread of traditional Southern Brazilian food, churrasco barbecue, chimarrão mate tea, rustic wooden table, hyper-realistic food photography",
+    484: "Macro photography of a honeybee pollinating a vibrant yellow sunflower, highly detailed wings, golden pollen, nature documentary style",
+    475: "A beautiful English cottage garden path lined with vibrant colorful blooming flowers, peaceful nature scene, spring morning sunlight",
+    462: "An athlete running powerfully on an asphalt road at sunrise, dramatic silhouette, dust particle effects, intense sports photography, 8k",
+    420: "A classic comic book style superhero standing tall on a skyscraper gargoyle overlooking a rainy neon city at night, epic cinematic lighting",
+    400: "A beautiful acoustic guitar resting against an old vintage amplifier in a sunny room, floating golden dust motes, music photography",
+    368: "Macro photography of colorful, beautiful, complex microscopic mold spores spreading like an alien forest, scientific abstract, vibrant colors",
+    307: "An ancient Roman stone road winding through a lush green valley in Italy, historic architecture, cinematic landscape photography",
+    294: "The ancient Egyptian Pyramids of Giza at sunset, towering monuments of engineering, golden desert sand, hyper-realistic historical photography",
+    280: "A time-lapse composite image showing historical stone castles transitioning into modern glass skyscrapers, architectural evolution, epic",
+    183: "Luxurious modern home interior, smart home technology, sleek minimalist finishes, glowing ambient LED lighting, architectural digest style",
+    172: "Beautiful rustic home built from eco-friendly recycled brick and warm timber, affordable sustainable architecture, hyper-realistic",
+    154: "A craftsman pouring concrete into custom wooden molds, DIY home construction, workshop setting, warm natural lighting, realistic"
+  };
+
   const getPostImage = (post: Post) => {
-    if (post.yoast_head_json?.og_image?.[0]?.url) return post.yoast_head_json.og_image[0].url;
-    if (post._embedded?.['wp:featuredmedia']?.[0]?.source_url) return post._embedded['wp:featuredmedia'][0].source_url;
-    const match = post.content.rendered.match(/<img[^>]+src=\s*["']([^"']+)["']/i);
-    return match ? match[1] : null;
+    if (post.id === 599) {
+      return '/regenerated_image_1777480656768.png';
+    }
+    if (post.id === 594) {
+      return '/regenerated_image_1777480657911.png';
+    }
+
+    // Check if we have a downloaded local image for this post
+    const localImageMap: Record<number, string> = {
+      154: 'content-154-image-1.jpg',
+      280: 'content-280-image.jpg',
+      294: 'content-294-image-4.jpg',
+      307: 'content-307-image-7.jpg',
+      368: 'content-368-image.jpg',
+      400: 'content-400-image-4.jpg',
+      420: 'content-420-image-7.jpg',
+      462: 'content-462-WhatsApp-Image-2025-08-25-at-21.43.21-1024x768.jpeg',
+      475: 'content-475-image.jpg',
+      484: 'content-484-image-2.jpg',
+      497: 'content-497-image-4.jpg',
+      508: 'content-508-image-6.jpg',
+      515: 'content-515-image-1.jpg',
+      529: 'content-529-image-4.jpg',
+      536: 'content-536-image-6.jpg',
+      543: 'content-543-image-9.jpg',
+      554: 'content-554-image-11.jpg',
+      560: 'content-560-image.jpg',
+      570: 'content-570-image-2.jpg',
+      574: 'content-574-image-3.jpg',
+      579: 'content-579-image-4.jpg',
+      584: 'content-584-image.jpg',
+      589: 'content-589-image-1.jpg',
+      594: 'content-594-image-2.jpg',
+      599: 'content-599-image-3.jpg',
+      639: 'content-639-image.jpg',
+      645: 'content-645-image-1.jpg',
+      650: 'content-650-image-2.jpg',
+      655: 'content-655-image-3.jpg',
+      659: 'content-659-WhatsApp-Image-2026-01-30-at-21.00.45-1024x682.jpeg',
+      666: 'content-666-image.jpg',
+      669: 'content-669-image-1.jpg',
+      678: 'content-678-image-2.jpg',
+      685: 'content-685-image-4.jpg'
+    };
+
+    if (localImageMap[post.id]) {
+      return `/wp-images/${localImageMap[post.id]}`;
+    }
+
+    let prompt = postPrompts[post.id];
+    
+    if (!prompt) {
+      // Fallback for new/unknown posts
+      const cleanTitle = post.title.rendered
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove accents
+        .replace(/[^a-zA-Z0-9 ]/g, " ") // Remove special chars
+        .substring(0, 50)
+        .trim();
+      prompt = `Highly detailed aesthetic photograph of ${cleanTitle}, hyper-realistic, 8k resolution, cinematic lighting`;
+    }
+    
+    const seed = post.id || Math.floor(Math.random() * 1000);
+    return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=800&height=600&nologo=true&seed=${seed}`;
   };
 
   return (
@@ -190,7 +287,7 @@ export default function App() {
           }}
           className="flex items-center gap-2 lg:gap-3 hover:opacity-80 transition-opacity text-center md:absolute md:left-1/2 md:-translate-x-1/2"
         >
-          <img src="https://achartemas.com/wp-content/uploads/2025/03/Favicon-AT-1.png" alt="Logo" className="w-6 h-6 lg:w-8 lg:h-8 object-contain" referrerPolicy="no-referrer" />
+          <img src="/regenerated_image_1777470915146.png" alt="Logo" className="w-6 h-6 lg:w-8 lg:h-8 object-contain rounded" />
           <div className="font-serif font-black text-lg sm:text-xl lg:text-2xl tracking-[-1px] uppercase">
             Achar Temas
           </div>
@@ -328,7 +425,7 @@ export default function App() {
                       backgroundSize: group.bgSize, 
                       backgroundPosition: 'center', 
                       backgroundRepeat: 'no-repeat',
-                      backgroundColor: group.bgColor || 'transparent' 
+                      backgroundColor: (group as any).bgColor || 'transparent' 
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/60 transition-colors duration-500"></div>
@@ -363,8 +460,10 @@ export default function App() {
                   <img 
                     src={getPostImage(selectedPost)} 
                     alt="Featured" 
-                    className="w-full h-auto max-h-[500px] object-cover mb-6 border border-border"
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
+                    className="w-full h-auto max-h-[500px] object-cover object-center mb-6 border border-border"
                   />
                 )}
 
@@ -384,7 +483,7 @@ export default function App() {
                 </div>
                 
                 <div 
-                  className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:text-accent prose-a:text-highlight prose-img:border prose-img:border-[#222]"
+                  className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:text-accent prose-a:text-highlight prose-img:hidden"
                   dangerouslySetInnerHTML={{ __html: selectedPost.content.rendered }}
                 />
                 
@@ -424,8 +523,10 @@ export default function App() {
                             <img 
                               src={getPostImage(post)} 
                               alt="Thumbnail" 
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                              loading="lazy"
+                              decoding="async"
                               referrerPolicy="no-referrer"
+                              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-80"></div>
                           </div>
@@ -462,10 +563,11 @@ export default function App() {
             <div className="shrink-0 relative">
               <div className="absolute inset-0 bg-highlight rounded-full blur-xl opacity-20"></div>
               <img 
-                src="https://achartemas.com/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-06-at-10.05.17.jpeg" 
+                src="/regenerated_image_1777479020651.png" 
                 alt="Neverson Camargo" 
+                loading="lazy"
+                decoding="async"
                 className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 object-cover rounded-full border-4 border-[#222] relative z-10 shadow-2xl"
-                referrerPolicy="no-referrer"
               />
             </div>
             <div className="max-w-xl text-center md:text-left">
