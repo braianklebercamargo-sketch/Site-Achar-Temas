@@ -2,6 +2,8 @@ import categoriesData from '../data/categories.json';
 import postsData from '../data/posts.json';
 import commentsData from '../data/comments.json';
 
+export const WP_API_URL = 'https://achartemas.com/wp-json/wp/v2';
+
 export interface Category {
   id: number;
   name: string;
@@ -82,4 +84,5 @@ export async function fetchPost(id: number): Promise<Post> {
 export async function fetchComments(postId: number): Promise<WPComment[]> {
   return (commentsData as WPComment[]).filter(c => c.post === postId);
 }
+
 
